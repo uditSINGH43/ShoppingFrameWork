@@ -1,7 +1,14 @@
+import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from test_sign2 import personal_info
+
+test_data_path = "C:/Users/Udit Singh/PycharmProjects/PythonProject1/Shopping/test_Shopping.json"
+
+with open(test_data_path) as file:
+    test_data = json.load(file)
+    test_list = test_data["data"]
 
 driver = webdriver.Edge()
 
