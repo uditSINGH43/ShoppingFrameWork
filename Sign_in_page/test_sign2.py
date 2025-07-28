@@ -7,7 +7,7 @@ def personal_info(driver):
     # personal info register(new page login 2)
     WebDriverWait(driver, 5).until(EC.presence_of_element_located((By.CSS_SELECTOR, "input[id='id_gender1']")))
     driver.find_element(By.CSS_SELECTOR, "input[id='id_gender1']").click()
-    driver.find_element(By.CSS_SELECTOR, "#password").send_keys("TESTINGhere")
+    driver.find_element(By.CSS_SELECTOR, "#password").send_keys("as")
     driver.find_element(By.XPATH, "//select[@id='days']/option[@value='10']").click()
     driver.find_element(By.CSS_SELECTOR, "select[id='months'] option[value='2']").click()
     driver.find_element(By.CSS_SELECTOR, "select[name='years'] option[value='2004']").click()
@@ -25,5 +25,7 @@ def personal_info(driver):
     driver.find_element(By.CSS_SELECTOR, "#address1").send_keys("Gandhi Nagar")
     driver.find_element(By.XPATH, "//input[@id = 'address2']").send_keys("that's it")
     driver.find_element(By.CSS_SELECTOR, "button[data-qa='create-account']").click()
-    print(driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text)
+   #print(driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text)
+    assert "ACCOUNT CREATED!" in driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text
     driver.find_element(By.XPATH,"//a[@class='btn btn-primary']").click()
+    #driver.find_element(By.CSS_SELECTOR, "a[href= '/delete_account']").click()
