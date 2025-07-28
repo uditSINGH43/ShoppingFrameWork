@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
 from On_time_signup.test_cart_addition import cart_add
 from On_time_signup.test_payment_page import payment
@@ -38,3 +37,8 @@ def SignUp(driver):
 
     # payment
     payment(driver)
+
+    # delete account
+    driver.find_element(By.CSS_SELECTOR, "a[href= '/delete_account']").click()
+    delete_account = driver.find_element(By.CSS_SELECTOR, "h2[data-qa= 'account-deleted']").text
+    assert "ACCOUNT DELETED!" in delete_account.strip()
