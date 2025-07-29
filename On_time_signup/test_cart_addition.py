@@ -14,4 +14,3 @@ def cart_add(driver):
     WebDriverWait(driver, 10)
     assert "Checkout" in driver.title
     driver.find_element(By.LINK_TEXT, "Proceed To Checkout").click()  # checkoout sequence
-    driver.find_element(By.CSS_SELECTOR, ".modal-body u").click()

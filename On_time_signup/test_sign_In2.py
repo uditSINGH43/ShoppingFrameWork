@@ -8,37 +8,34 @@ from Sign_in_page.test_account_delete import acc_delete
 from Sign_in_page.test_sign2 import personal_info
 
 
-def test_SignIn(browserInstance):
-    SignUp(browserInstance)
+def test_sign_in2(browserInstance):
+    signIn2(browserInstance)
 
-
-def SignUp(driver):
+def signIn2(driver):
+    #1. verify title page
     assert "Automation Exercise" in driver.title
-    # Adding items in cart
-    cart_add(driver)
-    driver.find_element(By.CSS_SELECTOR, ".modal-body u").click()
 
-    # SignUp
+    #2. signUp procedure before adding cart
+    driver.find_element(By.CSS_SELECTOR, "a[href='/login']").click()
     signUp(driver)
 
-    # call personal info detail from another file
+    #3. creating account
     personal_info(driver)
-    log_user = driver.find_element(By.CSS_SELECTOR, "header[id='header'] li:nth-child(10)")  # verify login part
-    assert "Logged in as Udit Singh" == log_user.text.strip()
 
-    # entering cart and checking out
-    driver.find_element(By.CSS_SELECTOR, "a[href='/view_cart']").click()
-    driver.find_element(By.LINK_TEXT, "Proceed To Checkout").click()
+    #4.adding data in cart
+    cart_add(driver)
 
-    # verify address and cart details
+    #5. verifying address and assert product
     verify_details(driver)
 
-    # message box
+    #6. adding comment in message box
     driver.find_element(By.CSS_SELECTOR, "textarea[name='message']").send_keys("damn.. im so tired of this")
     driver.find_element(By.CSS_SELECTOR, "a[href = '/payment']").click()  # checkout button
 
-    # payment
+    #7. payment sequence
     payment(driver)
 
-    #account delete
+    #8. account deletion sequence
     acc_delete(driver)
+
+
