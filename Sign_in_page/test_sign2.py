@@ -28,4 +28,4 @@ def personal_info(driver):
    #print(driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text)
     assert "ACCOUNT CREATED!" in driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text
     driver.find_element(By.XPATH,"//a[@class='btn btn-primary']").click()
-    #driver.find_element(By.CSS_SELECTOR, "a[href= '/delete_account']").click()
+
