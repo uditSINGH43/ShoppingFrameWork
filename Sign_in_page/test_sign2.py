@@ -25,7 +25,6 @@ def personal_info(driver):
     driver.find_element(By.CSS_SELECTOR, "#address1").send_keys("Gandhi Nagar")
     driver.find_element(By.XPATH, "//input[@id = 'address2']").send_keys("that's it")
     driver.find_element(By.CSS_SELECTOR, "button[data-qa='create-account']").click()
-   #print(driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text)
+    # print(driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text)
     assert "ACCOUNT CREATED!" in driver.find_element(By.CSS_SELECTOR, "h2[class='title text-center'] b").text
-    driver.find_element(By.XPATH,"//a[@class='btn btn-primary']").click()
-
+    driver.find_element(By.XPATH, "//a[@class='btn btn-primary']").click()

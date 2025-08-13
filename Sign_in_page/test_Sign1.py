@@ -28,4 +28,3 @@ personal_info(driver)
 driver.find_element(By.CSS_SELECTOR, "a[href='/delete_account']").click()
 print(driver.find_element(By.CSS_SELECTOR, "h2[data-qa='account-deleted'] b").text)
 driver.find_element(By.XPATH, "//a[@data-qa='continue-button']").click()
-

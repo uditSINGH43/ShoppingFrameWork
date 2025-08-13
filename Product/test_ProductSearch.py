@@ -15,9 +15,8 @@ def ProductSearch(driver):
     assert "SEARCHED PRODUCTS" in driver.find_element(By.CSS_SELECTOR, ".features_items h2").text
     product_name = driver.find_elements(By.CSS_SELECTOR, ".productinfo.text-center p")
     search_item = "T-Shirt".lower()
-    assert len(product_name)>0, "list is empty"
+    assert len(product_name) > 0, "list is empty"
 
     for search in product_name:
         search_name = search.text.lower()
         assert search_item in search_name, f"product{search.text} is not present"
-
