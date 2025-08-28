@@ -10,11 +10,12 @@ def test_scroll(browserInstance):
 
 def scroll(driver):
     # Step 1: Scroll to bottom of page
+    wait = WebDriverWait(driver, 10)
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-    time.sleep(2)  # wait for UI animation if any
+    WebDriverWait(driver, 10)  # wait for UI animation if any
 
     # Step 2: Click 'Scroll Up' arrow button
-    wait = WebDriverWait(driver, 10)
+
     arrow_up = wait.until(EC.element_to_be_clickable((By.ID, "scrollUp")))
     arrow_up.click()
 
